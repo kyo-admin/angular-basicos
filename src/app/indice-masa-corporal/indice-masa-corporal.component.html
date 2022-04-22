@@ -1,0 +1,126 @@
+<h1> Indice Masa Corporal</h1>
+<hr/>
+
+<div class="col">
+  <h3>Agregar: <small>{{nuevo.nombre}}</small></h3>
+  <hr>
+  <fieldset>
+    <legend>completa la información solicitada</legend>
+  <form (ngSubmit)="agregar( )">
+    <label> Nombre:
+      <input 
+        type="text" 
+        placeholder="Nombre"
+        name="nombre"
+        [(ngModel)] = "nuevo.nombre"
+      />
+    </label>
+    <label> Apellido Paterno:
+      <input
+        type="text"
+        placeholder="Apellido Paterno"
+        name="aPaterno"
+        [(ngModel)] = "nuevo.aPaterno"
+      />
+    </label>
+    <label> Apellido Materno:
+      <input
+        type="text"
+        placeholder="Apellido Materno"
+        name="aMaterno"
+        [(ngModel)] = "nuevo.aMaterno"
+      />
+    </label>
+    <label> Rut:
+      <input
+        type="text"
+        placeholder="Rut"
+        name="rut"
+        [(ngModel)] = "nuevo.rut"
+      />
+    </label>
+    <label> Edad:
+      <input
+        type="number"
+        placeholder="Edad"
+        name="edad"
+        [(ngModel)] = "nuevo.edad"
+      />
+    </label>
+    <!-- inicio -->
+    <label> Sexo:  
+      <ul>        
+        <label for="masculino">Masculino</label>
+        <input type="radio" id="soup" name="sexo" value="masculino" [(ngModel)] = "nuevo.sexo" checked>
+      
+        <label for="femenino">Femenino</label>
+        <input type="radio" id="curry" name="sexo" value="femenino" [(ngModel)] = "nuevo.sexo">            
+      </ul>
+    </label>  
+    <!-- fin -->
+    
+   <!--
+    <label> Sexo:
+      <input
+        type="string"
+        placeholder="sexo"
+        name="sexo"
+        [(ngModel)] = "nuevo.sexo"
+      />
+    </label>
+    -->
+    <label> Peso:
+      <input
+        type="number"
+        placeholder="Peso"
+        name="peso"
+        [(ngModel)] = "nuevo.peso"
+      />
+    </label> 
+    <label> Talla:
+      <input
+        type="number"
+        placeholder="Talla"
+        name="talla"
+        [(ngModel)] = "nuevo.talla"
+      />
+    </label> 
+
+    
+    
+      
+    <button type="submit">
+      agregar
+    </button>
+  </form>
+</fieldset>
+
+  <hr/>
+  <table class="default">
+
+    <tr>    
+      <th>Nombre</th>    
+      <th>A. Paterno</th>    
+      <th>A. Materno</th>
+      <th>R.U.T.</th>
+      <th>Edad</th>
+      <th>Sexo</th>
+      <th>Peso</th>
+      <th>Talla</th>
+      <th>I.M.C</th>    
+    </tr>    
+    <tr *ngFor="let paciente of pacientes">   
+      <td>{{paciente.nombre}}</td>    
+      <td>{{paciente.aPaterno}}</td>    
+      <td>{{paciente.aMaterno}}</td>
+      <td>{{paciente.rut}}</td>
+      <td>{{paciente.edad}}</td>
+      <td>{{paciente.sexo}}</td>
+      <td>{{paciente.peso}}</td>
+      <td>{{paciente.talla}}</td> 
+      <td>{{ (paciente.peso / (paciente.talla * paciente.talla)).toFixed(1)}}</td>
+      <!-- <td>{{paciente.nombre}} </td>    
+      <td>{{paciente.poder | number}}</td>    
+      <td>{{paciente.altura * paciente.poder}}</td>     -->
+    </tr>          
+  </table>
